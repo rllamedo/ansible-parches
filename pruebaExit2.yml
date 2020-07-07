@@ -1,5 +1,0 @@
-- name: Ejecutar Tarea
-  hosts: all
-  tasks:
-    - name: Ejecutar script de test 2
-      shell: /home/altabox/test/testscript2.sh
