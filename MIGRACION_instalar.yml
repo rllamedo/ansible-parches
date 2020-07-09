@@ -2,13 +2,13 @@
   hosts: all
   gather_facts: no
   tasks:   
-    block:
-      - name: Ejecutar scripts de preparar
-        shell: wget -O - http://10.44.36.65/migracion/scripts_llaollao/000-commons.sh | bash -s '300-instalar.sh'
-        register: salida
-      - debug: msg="{{ salida.stdout }}"
-      - name: Unconditionally reboot the machine with all defaults
-        reboot:
-        rescue:
-          - debug:
-              msg: 'Ansible: Ha ocurrido un error'
+    - name: Ejecutar scripts de preparar
+      block:
+      shell: wget -O - http://10.44.36.65/migracion/scripts_llaollao/000-commons.sh | bash -s '300-instalar.sh'
+      register: salida
+    - debug: msg="{{ salida.stdout }}"
+    - name: Unconditionally reboot the machine with all defaults
+      reboot:
+      rescue:
+        - debug:
+            msg: 'Ansible: Ha ocurrido un error'
