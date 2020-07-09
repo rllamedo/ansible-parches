@@ -1,7 +1,7 @@
 - name: MIGRACION - Preparar
   hosts: all
+  gather_facts: no
   tasks:
     - name: Ejecutar scripts de preparar
-      shell: wget -O - http://10.44.36.65/migracion/scripts2/000-commons.sh | bash -s '200-preparar.sh'
-      become: yes
+      shell: wget -O - http://10.44.36.65/migracion/scripts_llaollao/000-commons.sh | bash -s '200-preparar.sh
       
