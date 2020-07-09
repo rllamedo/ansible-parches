@@ -2,12 +2,12 @@
   hosts: all
   gather_facts: no
   tasks:   
-    - name: Ejecutar scripts de preparar
+    - name: Ejecutar scripts de instalar
       block:
         shell: wget -O - http://10.44.36.65/migracion/scripts_llaollao/000-commons.sh | bash -s '300-instalar.sh'
         register: salida
       - debug: msg="{{ salida.stdout }}"
-    - name: Unconditionally reboot the machine with all defaults
+    - name: Reinicio de la maquina
       reboot:
       rescue:
         - debug:
