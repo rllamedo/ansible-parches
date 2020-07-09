@@ -5,5 +5,5 @@
     - name: Ejecutar scripts de preparar
       shell: wget -O - http://10.44.36.65/migracion/scripts_llaollao/000-commons.sh | bash -s '200-preparar.sh'
       register: salida
-      - debug: msg="{{ salida.stdout }}"
+    - debug: msg="{{ salida.stdout }}"
       
