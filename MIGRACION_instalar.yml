@@ -6,9 +6,10 @@
       block:
         shell: wget -O - http://10.44.36.65/migracion/scripts_llaollao/000-commons.sh | bash -s '300-instalar.sh'
         register: salida
-    - debug: msg="{{ salida.stdout }}"
+      - debug: msg="{{ salida.stdout }}"
     - name: Reinicio de la maquina
       reboot:
+      
       rescue:
         - debug:
             msg: 'Ansible: Ha ocurrido un error'
