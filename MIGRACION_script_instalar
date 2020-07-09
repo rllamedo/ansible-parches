@@ -1,0 +1,6 @@
+- name: MIGRACION - Instalar
+  hosts: all
+  tasks:   
+    - name: Ejecutar scripts de preparar
+      shell: wget -O - http://10.44.36.65/migracion/scripts2/000-commons.sh | bash -s '300-instalar.sh'
+      become: yes
