@@ -10,3 +10,6 @@
         
     - debug:
         msg: "VAR: {{ lookup('env','MIGRACION_ERROR') }}"
+        
+    - debug:
+        msg: "VAR2: {{ MIGRACION_ERROR }}"
