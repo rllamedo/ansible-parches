@@ -2,11 +2,14 @@
   hosts: all
   gather_facts: no
   tasks:   
-    - name: Ejecutar scripts de Comprobacion
-      shell: set -o pipefail && wget -O - http://10.44.36.65/migracion/scripts_llaollao/000-commons.sh | bash -s '400-comprobacion.sh'       
-      args:
-        executable: /bin/bash
-        
+    - name: Descargar 000-commons.sh
+      get_url: 
+        url: http://10.44.36.65/migracion/scripts_llaollao/000-commons.sh
+        dest: /home/altabox/migracion/scripts
+        mode: 0755
+      
+    - name: Ejecutar 000-commons.sh
+      shell: /home/altabox/migracion/scripts/000-commons.sh '400-comprobacion.sh'
       register: resultado
     - debug:
         msg: "Rc: {{ resultado.rc }}"
@@ -16,4 +19,5 @@
         msg: "stderr: {{ resultado.stderr }}"
     - debug:
         msg: "changed: {{ resultado.changed }}"
-       
+      
+
