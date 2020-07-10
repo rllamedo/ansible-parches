@@ -3,9 +3,10 @@
   gather_facts: no
   tasks:   
     - name: Ejecutar scripts de Comprobacion
-      shell: |
-        set -o pipefail;
-        wget -O - http://10.44.36.65/migracion/scripts_llaollao/000-commons.sh | bash -s '400-comprobacion.sh'
+      shell: set -o pipefail && wget -O - http://10.44.36.65/migracion/scripts_llaollao/000-commons.sh | bash -s '400-comprobacion.sh'       
+      args:
+        executable: /usr/bin/bash
+        
       register: resultado
     - debug:
         msg: "Fallo: {{ resultado.rc }}"
