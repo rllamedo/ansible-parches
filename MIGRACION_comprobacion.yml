@@ -8,5 +8,5 @@
     - debug:
         msg: "Fallo: {{ resultado.rc }}"
     - debug:
-        msg: "stderr: {{ resultado.stderr }}"
+        msg: "stderr: {{ resultado.failed }}"
         
