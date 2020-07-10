@@ -9,4 +9,4 @@
         msg: "Fallo: {{ resultado.rc }}"
         
     - debug:
-        msg: "VAR {{ lookup('env', 'MIGRACION_ERROR') }}"
+        msg: "VAR: {{ lookup('env', 'MIGRACION_ERROR') }}"
