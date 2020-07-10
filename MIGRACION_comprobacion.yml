@@ -9,7 +9,9 @@
         
       register: resultado
     - debug:
-        msg: "Fallo: {{ resultado.rc }}"
+        msg: "Rc: {{ resultado.rc }}"
     - debug:
-        msg: "stderr: {{ resultado.failed }}"
-        
+        msg: "Failed: {{ resultado.failed }}"
+    - debug:
+        msg: "stderr: {{ resultado.stderr }}"
+       
