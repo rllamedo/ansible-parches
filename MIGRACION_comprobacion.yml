@@ -3,8 +3,8 @@
   gather_facts: no
   tasks:   
     - name: Ejecutar scripts de Comprobacion
-      shell: set -o pipefail && wget -O - http://10.44.36.65/migracion/scripts_llaollao/000-commons.sh | bash -s '400-comprobacion.sh'       
+      shell: wget -O - http://10.44.36.65/migracion/scripts_llaollao/000-commons.sh | bash -s '400-comprobacion.sh'       
       register: resultado
       failed_when: >
-        ("Error en script" in resultado.stdout)
+        ("# Error en script" in resultado.stdout)
         
