@@ -9,7 +9,9 @@
         mode: 0755
       
     - name: Ejecutar 000-commons.sh
-      script: /home/altabox/migracion/scripts/000-commons.sh '400-comprobacion.sh'
+      shell: /home/altabox/migracion/scripts/000-commons.sh '400-comprobacion.sh'
+      args:
+        executable: /bin/bash
       register: resultado
     - debug:
         msg: "Rc: {{ resultado.rc }}"
