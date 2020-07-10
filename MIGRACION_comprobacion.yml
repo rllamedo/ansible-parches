@@ -7,4 +7,4 @@
       register: resultado
       failed_when: "resultado.rc != 0"
     - debug:
-      msg: 'Fallo {{ resultado.rc }}'
+        msg: 'Fallo {{ resultado.rc }}'
