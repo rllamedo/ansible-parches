@@ -4,3 +4,6 @@
   tasks:   
     - name: Ejecutar scripts de Finalizar
       shell: wget -O - http://10.44.36.65/migracion/scripts_llaollao/000-commons.sh | bash -s '500-finalizar.sh'     
+      register: resultado
+      failed_when: >
+        ("# Error en script" in resultado.stdout)
