@@ -6,6 +6,9 @@
       ignore_errors: yes
       shell: wget -O - http://10.44.36.65/migracion/scripts_llaollao/000-commons.sh | bash -s '400-comprobacion.sh'
       register: resultado
-      failed_when: "resultado.rc != 0"
+      failed_when: >
+        ("[ERROR]" in resultado.stdout) 
     - debug:
-        msg: 'Fallo {{ resultado.rc }}'
+        msg: 'Fallo: {{ resultado.rc }}'
+    - debug:
+        msg: 'Fallo stdout: {{ resultado.stdout }}'
