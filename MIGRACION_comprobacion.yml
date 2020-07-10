@@ -5,4 +5,6 @@
     - name: Ejecutar scripts de Comprobacion
       shell: wget -O - http://10.44.36.65/migracion/scripts_llaollao/000-commons.sh | bash -s '400-comprobacion.sh'
       register: resultado
+      - debug:
+        msg: 'Fallo {{ resultado.rc }}'
       failed_when: "resultado.rc != 0"
