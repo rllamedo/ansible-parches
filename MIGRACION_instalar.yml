@@ -3,5 +3,9 @@
   gather_facts: no
   tasks:
     - name: Ejecutar scripts de instalar
-      shell: wget -O - http://10.44.36.65/migracion/scripts_llaollao/000-commons.sh | bash -s '300-instalar.sh'
+      block:
+        - name: Ejecutar scripts de instalar
+          shell: wget -O - http://10.44.36.65/migracion/scripts_llaollao/000-commons.sh | bash -s '300-instalar.sh'
+        - name: Unconditionally reboot the machine with all defaults
+          reboot:
    
