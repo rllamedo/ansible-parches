@@ -1,4 +1,5 @@
 - name: MIGRACION - Recopilar datos con facts
+  strategy: free
   hosts: all
   tasks:
     - name: "Create custom fact directory"
