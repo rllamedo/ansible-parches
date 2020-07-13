@@ -1,5 +1,6 @@
 - name: MIGRACION - Instalar
   hosts: all
+  strategy: free
   gather_facts: no
   tasks:
     - name: Ejecutar scripts de instalar
