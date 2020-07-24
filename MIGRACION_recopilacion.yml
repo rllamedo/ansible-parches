@@ -5,10 +5,8 @@
     - name: "Create custom fact directory"
       file:
         path: "{{ ansible_user_dir }}/facts.d"
-        state: directory
-    - name: "Insert custom fact file"
-      copy:
-        src: "{{ item }}"
-        dest: "{{ ansible_user_dir }}/facts.d/"
-        mode: 0755
-      with_fileglob: "/etc/ansible/facts/*.fact"        
+        state: directory 
+    - name: "Sincronizar carpetas facts"
+      synchronize:
+        src: "/etc/ansible/facts"
+        dest: "{{ ansible_user_dir }}/facts.d"
