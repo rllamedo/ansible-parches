@@ -1,6 +1,7 @@
 - name: MIGRACION - Recopilar datos con facts
   strategy: free
   hosts: all
+  gather_facts: False
   tasks:
     - name: "Comprobar si existe el directorio"
       stat:
