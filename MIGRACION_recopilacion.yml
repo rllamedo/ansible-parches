@@ -20,5 +20,4 @@
         src: "{{ item }}"
         dest: "{{ ansible_user_dir }}/facts.d/"
         mode: 0755
-        checksum: yes
       with_fileglob: "/etc/ansible/facts/*.fact" 
