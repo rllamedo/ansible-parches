@@ -2,15 +2,6 @@
   strategy: free
   hosts: all
   tasks:
-    - name: "Comprobar si existe el directorio"
-      stat:
-        path: "{{ ansible_user_dir }}/facts.d"
-      register: dir_to_delete
-    - name: "Eliminar {{ ansible_user_dir }}/facts.d"
-      file:
-        state: absent
-        path: "{{ ansible_user_dir }}/facts.d"
-      when: dir_to_delete.stat.exists and dir_to_delete.stat.isdir 
     - name: "Create custom fact directory"
       file:
         path: "{{ ansible_user_dir }}/facts.d"
