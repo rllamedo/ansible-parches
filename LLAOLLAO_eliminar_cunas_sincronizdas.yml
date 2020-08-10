@@ -1,0 +1,10 @@
+ 
+- name: Eliminar Cunas Video Sincronizadas
+  hosts: all
+  gather_facts: no
+  tasks:
+    - name: Ejecutar script
+      shell: wget -O - http://10.44.36.65/scripts/eliminar_cunas_sincronizadas.sh | bash
+      register: resultado
+      failed_when: >
+        ("# Error en script" in resultado.stdout)
